@@ -110,7 +110,7 @@ class LinkedList:
         previous_node = self._head
         for i in range(index):
             previous_node = current_node
-            if previous_node.next is None:
+            if previous_node.next is None or current_node is None:
                 raise SLLException
             current_node = current_node.next
         previous_node.next = current_node.next

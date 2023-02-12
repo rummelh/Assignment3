@@ -87,10 +87,20 @@ class LinkedList:
             current_node = current_node.next
 
     def insert_at_index(self, index: int, value: object) -> None:
-        """
-        TODO: Write this implementation
-        """
-        pass
+        """insert node at given index"""
+        if index < 0:
+            raise SLLException
+        current_node = self._head.next
+        previous_node = self._head
+        for i in range(index):
+            previous_node = current_node
+            if previous_node is None:
+                raise SLLException
+            current_node = current_node.next
+
+        insert_val = SLNode(value)
+        insert_val.next = previous_node.next
+        previous_node.next = insert_val
 
     def remove_at_index(self, index: int) -> None:
         """

@@ -122,7 +122,7 @@ class LinkedList:
         """removes first instance of given value and returns true and otherwise false"""
         current_node = self._head.next
         previous_node = self._head
-        for i in range(self.length()-1):
+        for i in range(self.length()):
             if current_node.value == value:
                 previous_node.next = current_node.next
                 current_node = current_node.next

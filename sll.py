@@ -68,15 +68,23 @@ class LinkedList:
     # ------------------------------------------------------------------ #
 
     def insert_front(self, value: object) -> None:
+        """inserts value after sentinel node"""
         current_node = SLNode(value)
         current_node.next = self._head.next
         self._head.next = current_node
 
     def insert_back(self, value: object) -> None:
-        """
-        TODO: Write this implementation
-        """
-        pass
+        """inserts value at end of linkedlist"""
+        current_node = self._head
+        while current_node is not None:
+            #transverses list while checking to make sure current node is not end.
+            if current_node.next is None:
+                #if next node is None, we are at end
+                add_val = SLNode(value)
+                current_node.next = add_val
+                add_val.next = None
+                return
+            current_node = current_node.next
 
     def insert_at_index(self, index: int, value: object) -> None:
         """

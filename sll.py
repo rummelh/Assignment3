@@ -103,10 +103,18 @@ class LinkedList:
         previous_node.next = insert_val
 
     def remove_at_index(self, index: int) -> None:
-        """
-        TODO: Write this implementation
-        """
-        pass
+        """removes node at given index"""
+        if index < 0:
+            raise SLLException
+        current_node = self._head.next
+        previous_node = self._head
+        for i in range(index):
+            previous_node = current_node
+            current_node = current_node.next
+            if current_node is None:
+                raise SLLException
+        previous_node.next = current_node.next
+        current_node = current_node.next
 
     def remove(self, value: object) -> bool:
         """

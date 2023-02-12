@@ -119,10 +119,17 @@ class LinkedList:
         current_node = current_node.next
 
     def remove(self, value: object) -> bool:
-        """
-        TODO: Write this implementation
-        """
-        pass
+        """removes first instance of given value and returns true and otherwise false"""
+        current_node = self._head.next
+        previous_node = self._head
+        for i in range(self.length()-1):
+            if current_node.value == value:
+                previous_node.next = current_node.next
+                current_node = current_node.next
+                return True
+            previous_node = current_node
+            current_node = current_node.next
+        return False
 
     def count(self, value: object) -> int:
         """

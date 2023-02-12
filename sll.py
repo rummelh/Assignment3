@@ -132,10 +132,14 @@ class LinkedList:
         return False
 
     def count(self, value: object) -> int:
-        """
-        TODO: Write this implementation
-        """
-        pass
+        """returns count of given value"""
+        count = 0
+        current_node = self._head.next
+        for i in range(self.length()):
+            if current_node.value == value:
+                count += 1
+            current_node = current_node.next
+        return count
 
     def find(self, value: object) -> bool:
         """

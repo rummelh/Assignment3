@@ -147,6 +147,7 @@ class LinkedList:
         for i in range(self.length()):
             if current_node.value == value:
                 return True
+            current_node = current_node.next
         return False
 
     def slice(self, start_index: int, size: int) -> "LinkedList":

@@ -1,9 +1,9 @@
-# Name:
-# OSU Email:
+# Name: Hannah Rummel
+# OSU Email: rummelh@oregonstate.edu
 # Course: CS261 - Data Structures
-# Assignment:
-# Due Date:
-# Description:
+# Assignment: 3
+# Due Date: 2/13/2023
+# Description: Stack adt with dynamic array as the underlying storage
 
 
 from dynamic_array import *

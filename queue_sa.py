@@ -67,35 +67,41 @@ class Queue:
     # ---------------------------------------------------------------------- #
 
     def enqueue(self, value: object) -> None:
-        if self._front:
-            self._da._double_enqueue()
-        self._sa[self._front] = value
+        """adds value to end of queue"""
+        self._back+=1
+        if self._back >= self._sa.length():
+            #checking for wrap around
+            self._back = 0
+        if self._current_size >= self._sa.length():
+                #checking to see if need to resize
+            self._double_queue()
+            self._back = self._current_size
+        self._sa[self._back] = value
         self._current_size +=1
-        self._front += 1
-
 
     def dequeue(self) -> object:
-        """
-        TODO: Write this implementation
-        """
-        pass
-
+        """removes value from beginning of queue"""
+        if self.size() == 0:
+            raise QueueException
+        front_of_queue = self._sa[self._front]
+        self._sa[self._front] = None
+        self._front += 1
+        self._current_size -=1
+        return front_of_queue
     def front(self) -> object:
-        """
-        TODO: Write this implementation
-        """
-        pass
+        """returns value at front of queue"""
+        if self.size() == 0:
+            raise QueueException
+        return self._sa[self._front]
 
     # The method below is optional, but recommended, to implement. #
     # You may alter it in any way you see fit.                     #
 
     def _double_queue(self) -> None:
-        new_arr = StaticArray(self._current_size * 2)
-        for index in range(self.size):
+        new_arr = StaticArray(self._sa.length() * 2)
+        for index in range(self.size()):
             new_arr[index] = self._sa[index]
-        self.capacity = self.capacity *2
         self._sa = new_arr
-
 
 
 

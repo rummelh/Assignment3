@@ -1,9 +1,9 @@
-# Name:
-# OSU Email:
+# Name: Hannah Rummel
+# OSU Email: rummelh@oregonstate.edu
 # Course: CS261 - Data Structures
-# Assignment:
-# Due Date:
-# Description:
+# Assignment: 3
+# Due Date: 2/13/2023
+# Description: queue adt with linked list as the underlying data type
 
 
 from SLNode import SLNode
@@ -63,10 +63,14 @@ class Queue:
     # -----------------------------------------------------------------------
 
     def enqueue(self, value: object) -> None:
-        """
-        TODO: Write this implementation
-        """
-        pass
+        """adds new value on to the end of the queue"""
+        current_node = SLNode(value)
+        if self._tail is None:
+            self._tail = current_node
+            self._head = current_node
+        else:
+            self._tail.next = current_node
+            self._tail = current_node
 
     def dequeue(self) -> object:
         """

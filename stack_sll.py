@@ -1,9 +1,9 @@
-# Name:
-# OSU Email:
+# Name: Hannah Rummel
+# OSU Email: rummelh@oregonstate.edu
 # Course: CS261 - Data Structures
-# Assignment:
-# Due Date:
-# Description:
+# Assignment: 3
+# Due Date: 2/13/2023
+# Description: stack adt using linked list as the underlying data storage
 
 
 from SLNode import SLNode
@@ -62,10 +62,10 @@ class Stack:
     # -----------------------------------------------------------------------
 
     def push(self, value: object) -> None:
-        """
-        TODO: Write this implementation
-        """
-        pass
+        current_node = SLNode(value)
+        current_node.next = self._head
+        #makes the cur.next equal to the last thing pushed
+        self._head = current_node
 
     def pop(self) -> object:
         """

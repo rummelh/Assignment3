@@ -1,9 +1,9 @@
-# Name:
-# OSU Email:
+# Name: Hannah Rummel
+# OSU Email: rummelh@oregonstate.edu
 # Course: CS261 - Data Structures
-# Assignment:
-# Due Date:
-# Description:
+# Assignment: 3
+# Due Date: 2/13/2023
+# Description: Queue adt that uses static array as its underlying data storage
 
 
 # Note: Changing any part of the pre-implemented methods (besides adding  #

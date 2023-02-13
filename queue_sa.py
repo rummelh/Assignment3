@@ -84,8 +84,6 @@ class Queue:
         if self.size() == 0:
             raise QueueException
         front_of_queue = self._sa[self._front]
-        self._sa[self._front] = None
-        #might remove this
         self._front += 1
         self._current_size -=1
 

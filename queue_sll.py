@@ -73,7 +73,7 @@ class Queue:
             self._tail = current_node
 
     def dequeue(self) -> object:
-        """removes value at bottom of queue"""
+        """removes value at beginning of queue"""
         if self.size() == 0:
             raise QueueException
         remove_val = self._head.value
@@ -81,10 +81,10 @@ class Queue:
         return remove_val
 
     def front(self) -> object:
-        """
-        TODO: Write this implementation
-        """
-        pass
+        """returns value at front of queue"""
+        if self.size() == 0:
+            raise QueueException
+        return self._head.value
 
 
 # ------------------- BASIC TESTING -----------------------------------------

@@ -63,10 +63,10 @@ class Stack:
         return value
 
     def top(self) -> object:
-        """
-        TODO: Write this implementation
-        """
-        pass
+        """returns value on top of the stack"""
+        if self._da.length() ==0:
+            raise StackException
+        return self._da[self._da.length()-1]
 
 
 # ------------------- BASIC TESTING -----------------------------------------

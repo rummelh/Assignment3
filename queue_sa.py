@@ -69,13 +69,13 @@ class Queue:
     def enqueue(self, value: object) -> None:
         """adds value to end of queue"""
         self._back+=1
+        if self._current_size >= self._sa.length():
+            #checking to see if need to resize
+            self._double_queue()
+            self._back = self._current_size
         if self._back >= self._sa.length():
             #checking for wrap around
             self._back = 0
-        if self._current_size >= self._sa.length():
-                #checking to see if need to resize
-            self._double_queue()
-            self._back = self._current_size
         self._sa[self._back] = value
         self._current_size +=1
 
@@ -84,9 +84,11 @@ class Queue:
         if self.size() == 0:
             raise QueueException
         front_of_queue = self._sa[self._front]
-        self._sa[self._front] = None
+        #self._sa[self._front] = None
+        #might remove this
         self._front += 1
         self._current_size -=1
+
         return front_of_queue
     def front(self) -> object:
         """returns value at front of queue"""
@@ -100,7 +102,11 @@ class Queue:
     def _double_queue(self) -> None:
         new_arr = StaticArray(self._sa.length() * 2)
         for index in range(self.size()):
-            new_arr[index] = self._sa[index]
+            new_arr[index] = self._sa[self._front]
+            self._front = self._increment(self._front)
+            if self._sa[self._front] is None:
+                self._front = 0
+            #new_arr[index] = self._sa[index]
         self._sa = new_arr
 
 

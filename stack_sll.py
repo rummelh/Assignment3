@@ -62,17 +62,19 @@ class Stack:
     # -----------------------------------------------------------------------
 
     def push(self, value: object) -> None:
+        """pushes value to top of stack"""
         current_node = SLNode(value)
         current_node.next = self._head
         #makes the cur.next equal to the last thing pushed
         self._head = current_node
 
     def pop(self) -> object:
-        """
-        TODO: Write this implementation
-        """
-        pass
-
+        """value is popped from top of stack"""
+        if self.size() == 0:
+            raise StackException
+        remove_val = self._head.value
+        self._head = self._head.next
+        return remove_val
     def top(self) -> object:
         """
         TODO: Write this implementation

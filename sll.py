@@ -151,11 +151,20 @@ class LinkedList:
         return False
 
     def slice(self, start_index: int, size: int) -> "LinkedList":
-        """
-        TODO: Write this implementation
-        """
-        pass
-
+        """slices linkedlist at given index and creates a new linked list at value up to given size"""
+        if start_index < 0 or size > self.length():
+            raise SLLException
+        new_linkedlist = LinkedList()
+        current_node = self._head.next
+        count = 0
+        for i in range(self.length()):
+            if i >= start_index and count < size:
+                new_linkedlist.insert_back(current_node.value)
+                count += 1
+                if current_node.next is None and count < size:
+                    raise SLLException
+            current_node = current_node.next
+        return new_linkedlist
 
 if __name__ == "__main__":
 

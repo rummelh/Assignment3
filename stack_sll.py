@@ -76,10 +76,10 @@ class Stack:
         self._head = self._head.next
         return remove_val
     def top(self) -> object:
-        """
-        TODO: Write this implementation
-        """
-        pass
+        """returns value on top of the stack"""
+        if self.size() == 0:
+            raise StackException
+        return self._head.value
 
 # ------------------- BASIC TESTING -----------------------------------------
 

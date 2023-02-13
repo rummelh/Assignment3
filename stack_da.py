@@ -55,10 +55,11 @@ class Stack:
         self._da.append(value)
 
     def pop(self) -> object:
-        """
-        TODO: Write this implementation
-        """
-        pass
+        if self._da.length() == 0:
+            raise StackException
+        value = self._da[self._da.length()-1]
+        self._da.remove_at_index(self._da.length()-1)
+        return value
 
     def top(self) -> object:
         """

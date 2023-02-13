@@ -67,10 +67,12 @@ class Queue:
     # ---------------------------------------------------------------------- #
 
     def enqueue(self, value: object) -> None:
-        """
-        TODO: Write this implementation
-        """
-        pass
+        if self._front:
+            self._da._double_enqueue()
+        self._sa[self._front] = value
+        self._current_size +=1
+        self._front += 1
+
 
     def dequeue(self) -> object:
         """
@@ -88,10 +90,13 @@ class Queue:
     # You may alter it in any way you see fit.                     #
 
     def _double_queue(self) -> None:
-        """
-        TODO: Write this implementation
-        """
-        pass
+        new_arr = StaticArray(self._current_size * 2)
+        for index in range(self.size):
+            new_arr[index] = self._sa[index]
+        self.capacity = self.capacity *2
+        self._sa = new_arr
+
+
 
 
 # ------------------- BASIC TESTING -----------------------------------------

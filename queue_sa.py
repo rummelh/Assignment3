@@ -72,13 +72,13 @@ class Queue:
         if self._back >= self._sa.length():
             #checking for wrap around
             self._back = 0
+
         if self._current_size >= self._sa.length():
             #checking to see if need to resize
             self._double_queue()
             self._back = self._current_size
-
         self._sa[self._back] = value
-        self._current_size +=1
+        self._current_size += 1
 
     def dequeue(self) -> object:
         """removes value from beginning of queue"""
@@ -103,8 +103,8 @@ class Queue:
             new_arr[index] = self._sa[self._front]
             self._front = self._increment(self._front)
             #if self._sa[self._front] is None:
-            if self._sa[self._front] == self.size():
-                self._front = 0
+                #self._front = 0
+        self._front = 0
         self._sa = new_arr
 
 

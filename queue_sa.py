@@ -98,13 +98,13 @@ class Queue:
     # You may alter it in any way you see fit.                     #
 
     def _double_queue(self) -> None:
+        """used to resize array and reindex"""
         new_arr = StaticArray(self._sa.length() * 2)
         for index in range(self.size()):
             new_arr[index] = self._sa[self._front]
             self._front = self._increment(self._front)
-            #if self._sa[self._front] is None:
-                #self._front = 0
         self._front = 0
+        #reset front index after reindexing
         self._sa = new_arr
 
 

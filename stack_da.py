@@ -55,6 +55,7 @@ class Stack:
         self._da.append(value)
 
     def pop(self) -> object:
+        """takes off the last value on the end of the stack"""
         if self._da.length() == 0:
             raise StackException
         value = self._da[self._da.length()-1]

@@ -142,10 +142,12 @@ class LinkedList:
         return count
 
     def find(self, value: object) -> bool:
-        """
-        TODO: Write this implementation
-        """
-        pass
+        """returns true if value is in linkedlist and false otherwise"""
+        current_node = self._head.next
+        for i in range(self.length()):
+            if current_node.value == value:
+                return True
+        return False
 
     def slice(self, start_index: int, size: int) -> "LinkedList":
         """

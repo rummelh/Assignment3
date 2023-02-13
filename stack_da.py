@@ -51,10 +51,8 @@ class Stack:
     # -----------------------------------------------------------------------
 
     def push(self, value: object) -> None:
-        """
-        TODO: Write this implementation
-        """
-        pass
+        """pushes value on the end of the stack"""
+        self._da.append(value)
 
     def pop(self) -> object:
         """

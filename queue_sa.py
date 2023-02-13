@@ -86,7 +86,6 @@ class Queue:
         front_of_queue = self._sa[self._front]
         self._front += 1
         self._current_size -=1
-
         return front_of_queue
     def front(self) -> object:
         """returns value at front of queue"""

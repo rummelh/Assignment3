@@ -152,7 +152,7 @@ class LinkedList:
 
     def slice(self, start_index: int, size: int) -> "LinkedList":
         """slices linkedlist at given index and creates a new linked list at value up to given size"""
-        if start_index < 0 or size > self.length():
+        if start_index < 0 or size > self.length() or index > self.length()-1:
             raise SLLException
         new_linkedlist = LinkedList()
         current_node = self._head.next
